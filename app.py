@@ -15,14 +15,17 @@ class TaskManager(db.Model):
 
 @app.route("/")
 def home():
-    
-    return render_template('base.html')
+    task_list=TaskManager.query.all()
+    # print(task_list)
+    return render_template('base.html',task_list=task_list)
 @app.route("/about")
 def about():
     return "<h1>About Page.Learn Flask"
 with app.app_context():
     db.create_all()
-    
+    # new_task=TaskManager(title='Task 1',complete=False)
+    # db.session.add(new_task)
+    # db.session.commit()
 
 if __name__ =='__main__':
     app.run(debug=True)

@@ -6,6 +6,19 @@
     <title>Task Manager</title>
 </head>
 <body>
-    <h1>Task Manager</h1>
+    <h1>Task Manager Application</h1>
+    <form>
+        <label for="">Task Manager Application</label>
+        <input type="text" name="title" placeholder="Enter a new Task">
+        <button type="submit">Add</button>
+    </form>
+    {% for task in task_list %}
+    <p>{{task.id}} | {{task.title}}</p>
+    {% if task.complete==False %}
+        <span>Not complete</span>
+    {% else %}
+        <span>It is completed</span>
+    {% endif %}
+    {% endfor %}
 </body>
 </html>
