@@ -3,22 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    {% comment %} <script src="semantic/dist/semantic.min.js"></script>    {% endcomment %}
     <title>Task Manager</title>
 </head>
 <body>
-    <h1>Task Manager Application</h1>
-    <form>
-        <label for="">Task Manager Application</label>
-        <input type="text" name="title" placeholder="Enter a new Task">
-        <button type="submit">Add</button>
-    </form>
-    {% for task in task_list %}
-    <p>{{task.id}} | {{task.title}}</p>
-    {% if task.complete==False %}
-        <span>Not complete</span>
-    {% else %}
-        <span>It is completed</span>
-    {% endif %}
-    {% endfor %}
+    <div class='ui container'>
+        <h1>Task Manager Application</h1>
+        <form action="/add" method="post">
+            <label for="">Task Manager Application</label>
+            <input type="text" name="title" placeholder="Enter a new Task">
+            <button type="submit">Add</button>
+        </form>
+        {% for task in task_list %}
+        <p>{{task.id}} | {{task.title}}</p>
+        {% if task.complete==False %}
+            <span>Not complete</span>
+        {% else %}
+            <span>It is completed</span>
+        {% endif %}
+        <a href="/update/{{task.id}}">Update</a>
+        <a href="/delete/{{task.id}}">Delete</a>
+        {% endfor %}
+    </div>
 </body>
 </html>
