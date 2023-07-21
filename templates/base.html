@@ -9,9 +9,9 @@
 </head>
 <body>
     <div class="ui container">
-        <h1 class="ui center aligned header">Task Manager Application</h1>
+        <h1 class="ui center aligned header">Daily Task Checklist Handler</h1>
         <form class="ui form" action="/add" method="post">
-            <label for="">Task Manager Application</label>
+            <label for="">Daily Task Checklist Handler</label>
             <input type="text" name="title" placeholder="Enter a new Task">
             <button class='ui blue button' type="submit">Add</button>
         </form>
@@ -23,7 +23,7 @@
             {% else %}
             <span class='ui green label'>It is completed</span>
             {% endif %}
-            <a class='ui blue button' href="/update/{{task.id}}">Update</a>
+            <a class='ui orange button' href="/update/{{task.id}}">Update</a>
             <a class='ui red button' href="/delete/{{task.id}}">Delete</a>
             {% endfor %}
         </div>
